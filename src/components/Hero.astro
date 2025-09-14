@@ -1,0 +1,70 @@
+---
+const { name = "Hamza Nadi حمزة نادي العديلي" } = Astro.props;
+import { Image } from "astro:assets";
+import hamzaPic from "../../public/images/hamza.jpeg";
+---
+
+<section class="section">
+  <div class="container hero">
+    <div class="card fade-in" style="animation-delay: 0.1s;">
+      <div class="kicker badge">أهلاً بك</div>
+      <h1 style="margin:.4rem 0 0">أنا {name}</h1>
+      <!-- Typewriter line -->
+      <h2
+        id="typed"
+        style="color:var(--color-blue);margin-top:0.5rem;min-height:1.5em"
+      >
+      </h2>
+      <p class="muted" style="margin:.6rem 0 1rem">
+        أساعد الكيانات على إنشاء وإعداد أقسام الاتصالات والتسويق المؤسسية وتوظيف
+        أفراد مؤهلين في مختلف المستويات الإدارية. أضع استراتيجية وخطة الاتصالات،
+        والرؤية، والمبادرات، ومؤشرات الأداء الرئيسية الاستراتيجية، وهيكل قسم
+        التسويق، والبرامج والأنظمة اللازمة، وإدارة إجراءات العمل الداخلية.
+      </p>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <a class="btn btn-brand" href="/about">من حمزة</a>
+        <a class="btn" href="/services">الخدمات</a>
+      </div>
+    </div>
+
+    <div class="media fade-in" style="animation-delay: 0.1s;">
+      <Image
+        src={hamzaPic}
+        alt="صورة حمزة نادي"
+        onload="this.previousElementSibling?.style.display==='none' && (this.style.display='block')"
+        width={500}
+        height={500}
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Script for typewriter -->
+<script is:inline>
+  const words = ["مستشار تسويق و تطوير الأعمال"];
+  let i = 0,
+    j = 0,
+    current = "",
+    isDeleting = false;
+
+  function type() {
+    current = words[i];
+    const el = document.getElementById("typed");
+    if (!el) return;
+
+    el.textContent = current.substring(0, j);
+
+    if (!isDeleting && j < current.length) {
+      j++;
+      setTimeout(type, 120);
+    } else if (isDeleting && j > 0) {
+      j--;
+      setTimeout(type, 80);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) i = (i + 1) % words.length;
+      setTimeout(type, 1000);
+    }
+  }
+  type();
+</script>

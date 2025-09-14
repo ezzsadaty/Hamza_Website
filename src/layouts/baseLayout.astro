@@ -1,0 +1,121 @@
+---
+const { title = "حمزة نادي", description = "الموقع الرسمي لحمزة نادي" } =
+  Astro.props;
+---
+
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="icon" href="/logo.png" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <a href="/" class="logo">
+          <img src="/logo.png" alt="حمزة نادي" />
+        </a>
+        <nav>
+          <button
+            id="menuBtn"
+            class="btn"
+            aria-label="فتح القائمة"
+            style="display:none">القائمة</button
+          >
+          <ul id="navList">
+            <li><a href="/">الرئيسية</a></li>
+            <li><a href="/about">من حمزة</a></li>
+            <li><a href="/services">الخدمات</a></li>
+            <li><a href="/blog">المقالات</a></li>
+            <li><a href="/contact" class="btn btn-brand">تواصل معي</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Brand/About -->
+        <div>
+          <h4>Hamza Nadi حمزة نادي العديلي</h4>
+          <p>
+            أساعد الكيانات على إنشاء وإعداد أقسام الاتصالات والتسويق المؤسسية
+            وتوظيف أفراد مؤهلين في مختلف المستويات الإدارية. أضع استراتيجية وخطة
+            الاتصالات، والرؤية، والمبادرات، ومؤشرات الأداء الرئيسية
+            الاستراتيجية، وهيكل قسم التسويق، والبرامج والأنظمة اللازمة، وإدارة
+            إجراءات العمل الداخلية.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/hamzanadi"
+              ><img src="/icons/linkedin.png" alt="LinkedIn" /></a
+            >
+            <a href="https://wa.me/+966592792020"
+              ><img src="/icons/whatsapp.png" alt="WhatsApp" /></a
+            >
+            <a href="mailto:hamza@haykal.sa"
+              ><img src="/icons/email.png" alt="Email" /></a
+            >
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4>روابط سريعة</h4>
+          <ul
+            style="list-style:none; padding:0; margin:0; display:grid; gap:.5rem;"
+          >
+            <li><a href="/">الرئيسية</a></li>
+            <li><a href="/about">من حمزة</a></li>
+            <li><a href="/services">الخدمات</a></li>
+            <li><a href="/blog">المقالات</a></li>
+            <li><a href="/contact">تواصل معي</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4>النشرة البريدية</h4>
+          <p>اشترك ليصلك آخر المقالات والنصائح مباشرة إلى بريدك.</p>
+          <form class="footer-newsletter">
+            <input type="email" placeholder="بريدك الإلكتروني" required />
+            <button type="submit" class="btn btn-brand">اشترك</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © {new Date().getFullYear()} جميع الحقوق محفوظة | حمزة نادي
+      </div>
+    </footer>
+
+    <script is:inline>
+      // بسيط للجوال: يحول القائمة لأزرار عند الشاشات الصغيرة
+      const btn = document.getElementById("menuBtn");
+      const list = document.getElementById("navList");
+      const mq = window.matchMedia("(max-width: 800px)");
+      function apply() {
+        if (mq.matches) {
+          btn.style.display = "inline-block";
+          list.style.display = "none";
+        } else {
+          btn.style.display = "none";
+          list.style.display = "flex";
+        }
+      }
+      btn?.addEventListener("click", () => {
+        list.style.display = list.style.display === "none" ? "flex" : "none";
+      });
+      apply();
+      mq.addEventListener("change", apply);
+    </script>
+  </body>
+</html>
