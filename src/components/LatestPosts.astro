@@ -1,49 +1,9 @@
----
-import { latestPosts } from "../data/posts";
----
 <section class="section latest-posts">
   <div class="container">
-    <h2>أحدث المقالات / المنشورات</h2>
-    <div class="posts-grid">
-      {latestPosts.map((p) => (
-        <a class="post-card" href={p.href}>
-          <!-- Thumbnail -->
-          <img
-            src={
-              p.kind === "video"
-                ? p.href
-                : p.kind === "pdf"
-                ? p.href
-                : p.kind === "article"
-                ? p.href
-                : p.kind === "image"
-                ? p.href
-                : "/icons/article-thumb.png"
-            }
-            alt={p.title}
-            class="post-thumb"
-          />
+    <h2>أحدث المنشورات من لينكدإن</h2>
 
-          <!-- Content -->
-          <div class="post-content">
-            <span class="post-tag">
-              {p.kind === "article"
-                ? "مقال"
-                : p.kind === "video"
-                ? "فيديو"
-                : p.kind === "pdf"
-                ? "ملف PDF"
-                : "صورة"}
-            </span>
-            <div class="post-title">{p.title}</div>
-            {p.date && <div class="post-meta">{p.date}</div>}
-          </div>
-        </a>
-      ))}
-    </div>
-
-    <div style="text-align:center; margin-top:2rem">
-      <a class="btn btn-brand" href="/blog">عرض جميع المقالات</a>
-    </div>
+    <!-- Elfsight LinkedIn Feed -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-df58ccb3-5ea3-4316-aa3c-da743d06e3e8" data-elfsight-app-lazy></div>
   </div>
 </section>

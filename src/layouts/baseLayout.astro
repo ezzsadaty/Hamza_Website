@@ -12,31 +12,35 @@ const { title = "حمزة نادي", description = "الموقع الرسمي ل
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <link rel="stylesheet" href="/src/styles/global.css" />
-    <link rel="icon" href="/logo.png" />
+    <link rel="icon" href="/icons/logo-01.jpg" />
   </head>
   <body>
-    <header class="header">
-      <div class="container nav">
-        <a href="/" class="logo">
-          <img src="/logo.png" alt="حمزة نادي" />
-        </a>
-        <nav>
-          <button
-            id="menuBtn"
-            class="btn"
-            aria-label="فتح القائمة"
-            style="display:none">القائمة</button
-          >
-          <ul id="navList">
-            <li><a href="/">الرئيسية</a></li>
-            <li><a href="/about">من حمزة</a></li>
-            <li><a href="/services">الخدمات</a></li>
-            <li><a href="/blog">المقالات</a></li>
-            <li><a href="/contact" class="btn btn-brand">تواصل معي</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<header class="header">
+  <div class="container nav">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="حمزة نادي" />
+    </a>
+
+    <!-- Mobile toggle (CSS only) -->
+    <input type="checkbox" id="navToggle" class="nav-toggle" />
+    <label for="navToggle" class="menu-btn" aria-label="فتح القائمة" aria-controls="navList" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </label>
+
+    <!-- Navigation -->
+    <nav>
+      <ul id="navList" class="nav-list">
+        <li><a href="/">الرئيسية</a></li>
+        <li><a href="/about">من حمزة</a></li>
+        <li><a href="/services">الخدمات</a></li>
+        <li><a href="/posts">المقالات</a></li>
+        <li><a href="/contact" class="btn btn-brand">تواصل معي</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
     <main>
       <slot />
@@ -96,26 +100,5 @@ const { title = "حمزة نادي", description = "الموقع الرسمي ل
         © {new Date().getFullYear()} جميع الحقوق محفوظة | حمزة نادي
       </div>
     </footer>
-
-    <script is:inline>
-      // بسيط للجوال: يحول القائمة لأزرار عند الشاشات الصغيرة
-      const btn = document.getElementById("menuBtn");
-      const list = document.getElementById("navList");
-      const mq = window.matchMedia("(max-width: 800px)");
-      function apply() {
-        if (mq.matches) {
-          btn.style.display = "inline-block";
-          list.style.display = "none";
-        } else {
-          btn.style.display = "none";
-          list.style.display = "flex";
-        }
-      }
-      btn?.addEventListener("click", () => {
-        list.style.display = list.style.display === "none" ? "flex" : "none";
-      });
-      apply();
-      mq.addEventListener("change", apply);
-    </script>
   </body>
 </html>
