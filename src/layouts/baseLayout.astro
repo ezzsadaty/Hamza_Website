@@ -1,8 +1,7 @@
 ---
 const { title = "حمزة نادي", description = "الموقع الرسمي لحمزة نادي" } =
   Astro.props;
-  import.meta.env.BASE_URL
-
+import "../styles/global.css";
 ---
 
 <html lang="ar" dir="rtl">
@@ -16,33 +15,48 @@ const { title = "حمزة نادي", description = "الموقع الرسمي ل
     <link rel="stylesheet" href="/src/styles/global.css" />
     <link rel="icon" href={`${import.meta.env.BASE_URL}icons/logo-01.jpg`} />
   </head>
+
   <body>
-<header class="header">
-  <div class="container nav">
-    <!-- Logo -->
-    <a href={`${import.meta.env.BASE_URL}`} class="logo">
-      <img src={`${import.meta.env.BASE_URL}logo.png`} alt="حمزة نادي" />
-    </a>
+    <header class="header">
+      <div class="container nav">
+        <!-- Logo -->
+        <a href={`${import.meta.env.BASE_URL}`} class="logo">
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="حمزة نادي" />
+        </a>
 
-    <!-- Mobile toggle (CSS only) -->
-    <input type="checkbox" id="navToggle" class="nav-toggle" />
-    <label for="navToggle" class="menu-btn" aria-label="فتح القائمة" aria-controls="navList" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </label>
+        <!-- Mobile toggle (CSS only) -->
+        <input type="checkbox" id="navToggle" class="nav-toggle" />
+        <label
+          for="navToggle"
+          class="menu-btn"
+          aria-label="فتح القائمة"
+          aria-controls="navList"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </label>
 
-    <!-- Navigation -->
-    <nav>
-      <ul id="navList" class="nav-list">
-        <li><a href={`${import.meta.env.BASE_URL}`}>الرئيسية</a></li>
-        <li><a href={`${import.meta.env.BASE_URL}about/`}>من حمزة</a></li>
-        <li><a href={`${import.meta.env.BASE_URL}services/`}>الخدمات</a></li>
-        <li><a href={`${import.meta.env.BASE_URL}posts/`}>المقالات</a></li>
-        <li><a href={`${import.meta.env.BASE_URL}contact/`} class="btn btn-brand">تواصل معي</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+        <!-- Navigation -->
+        <nav>
+          <ul id="navList" class="nav-list">
+            <li><a href={`${import.meta.env.BASE_URL}`}>الرئيسية</a></li>
+            <li><a href={`${import.meta.env.BASE_URL}about/`}>من حمزة</a></li>
+            <li>
+              <a href={`${import.meta.env.BASE_URL}services/`}>الخدمات </a>
+            </li>
+            <li>
+              <a href={`${import.meta.env.BASE_URL}posts/`}>المقالات </a>
+            </li>
+            <li>
+              <a
+                href={`${import.meta.env.BASE_URL}contact/`}
+                class="btn btn-brand">تواصل معي</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <main>
       <slot />
@@ -62,13 +76,22 @@ const { title = "حمزة نادي", description = "الموقع الرسمي ل
           </p>
           <div class="footer-social">
             <a href="https://www.linkedin.com/in/hamzanadi"
-              ><img src={`${import.meta.env.BASE_URL}icons/linkedin.png`} alt="LinkedIn" /></a
+              ><img
+                src={`${import.meta.env.BASE_URL}icons/linkedin.png`}
+                alt="LinkedIn"
+              /></a
             >
             <a href="https://wa.me/+966592792020"
-              ><img src={`${import.meta.env.BASE_URL}icons/whatsapp.png`} alt="WhatsApp" /></a
+              ><img
+                src={`${import.meta.env.BASE_URL}icons/whatsapp.png`}
+                alt="WhatsApp"
+              /></a
             >
             <a href="mailto:hamza@haykal.sa"
-              ><img src={`${import.meta.env.BASE_URL}icons/email.png`} alt="Email" /></a
+              ><img
+                src={`${import.meta.env.BASE_URL}icons/email.png`}
+                alt="Email"
+              /></a
             >
           </div>
         </div>
@@ -81,12 +104,15 @@ const { title = "حمزة نادي", description = "الموقع الرسمي ل
           >
             <li><a href={`${import.meta.env.BASE_URL}`}>الرئيسية</a></li>
             <li><a href={`${import.meta.env.BASE_URL}about/`}>من حمزة</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}services/`}>الخدمات</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}posts/`}>المقالات</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}contact/`}>تواصل معي</a></li>
+            <li>
+              <a href={`${import.meta.env.BASE_URL}services/`}>الخدمات </a>
+            </li>
+            <li><a href={`${import.meta.env.BASE_URL}posts/`}>المقالات </a></li>
+            <li>
+              <a href={`${import.meta.env.BASE_URL}contact/`}>تواصل معي</a>
+            </li>
           </ul>
         </div>
-
         <!-- Newsletter -->
         <div>
           <h4>النشرة البريدية</h4>

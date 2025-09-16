@@ -11,33 +11,65 @@ import BaseLayout from "../layouts/baseLayout.astro";
       <h1>الخدمات</h1>
       <p class="muted">مجموعة من الحلول التي تساعدك على النجاح والنمو:</p>
 
-      <div class="grid grid-2" style="margin-top:2rem">
-        <div class="card">
-          <h2>الاستشارات التسويقية</h2>
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <img
+              src={`${import.meta.env.BASE_URL}/icons/Haykal_One Color Icon_Navy-08.png`}
+              alt="Marketing Consulting"
+              class="service-icon"
+            />
+          </div>
+          <h3>الاستشارات التسويقية</h3>
           <p>
             تحليل وضعك الحالي، وضع خطة تسويقية، تحديد القنوات المناسبة، وقياس
             النتائج لتحقيق نمو مستدام.
           </p>
         </div>
 
-        <div class="card">
-          <h2>استشارات العلامة التجارية</h2>
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <img
+              src={`${import.meta.env.BASE_URL}/icons/Haykal_One Color Icon_Navy-12.png`}
+              alt="Brand Consulting"
+              class="service-icon"
+            />
+          </div>
+          <h3>استشارات العلامة التجارية</h3>
           <p>
             تطوير هوية قوية لعلامتك، من اختيار الألوان والشعارات، حتى صياغة
             الرسائل التي تميّزك بالسوق.
           </p>
         </div>
 
-        <div class="card">
-          <h2>الإعلانات</h2>
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <img
+              src={`${import.meta.env.BASE_URL}/icons/Haykal_One Color Icon_Navy-31.png`}
+              alt="Advertising"
+              class="service-icon"
+            />
+          </div>
+          <h3>الإعلانات</h3>
           <p>
             إدارة حملات تسويقية على السوشيال ميديا، Google Ads، والوسائط الأخرى
             لضمان أقصى عائد على الاستثمار.
           </p>
         </div>
 
-        <div class="card">
-          <h2>توليد العملاء المحتملين</h2>
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <img
+              src={`${import.meta.env.BASE_URL}/icons/Haykal_One Color Icon_Navy-33.png`}
+              alt="Lead Generation"
+              class="service-icon"
+            />
+          </div>
+          <h3>توليد العملاء المحتملين</h3>
           <p>
             استخدام أدوات التسويق الرقمي لجذب عملاء جدد وتحويل الاهتمام إلى
             مبيعات فعلية.
@@ -46,4 +78,21 @@ import BaseLayout from "../layouts/baseLayout.astro";
       </div>
     </div>
   </section>
+  <script is:inline>
+    // Reveal cards on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".service-card").forEach((card) => {
+      observer.observe(card);
+    });
+  </script>
 </BaseLayout>
