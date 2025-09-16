@@ -13,15 +13,15 @@ import "../styles/global.css";
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <link rel="stylesheet" href="/src/styles/global.css" />
-    <link rel="icon" href={`${import.meta.env.BASE_URL}icons/logo-01.jpg`} />
+    <link rel="icon" href="/icons/logo-01.jpg" />
   </head>
 
   <body>
     <header class="header">
       <div class="container nav">
         <!-- Logo -->
-        <a href={`${import.meta.env.BASE_URL}`} class="logo">
-          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="حمزة نادي" />
+        <a href="/" class="logo">
+          <img src="/logo.png" alt="حمزة نادي" /> 
         </a>
 
         <!-- Mobile toggle (CSS only) -->
@@ -39,17 +39,17 @@ import "../styles/global.css";
         <!-- Navigation -->
         <nav>
           <ul id="navList" class="nav-list">
-            <li><a href={`${import.meta.env.BASE_URL}`}>الرئيسية</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}about/`}>من حمزة</a></li>
+            <li><a href="/">الرئيسية</a></li>
+            <li><a href="/about/">من حمزة</a></li>
             <li>
-              <a href={`${import.meta.env.BASE_URL}services/`}>الخدمات </a>
+              <a href="/services/">الخدمات </a>
             </li>
             <li>
-              <a href={`${import.meta.env.BASE_URL}posts/`}>المقالات </a>
+              <a href="/posts/">المقالات </a>
             </li>
             <li>
               <a
-                href={`${import.meta.env.BASE_URL}contact/`}
+                href="/contact/"
                 class="btn btn-brand">تواصل معي</a
               >
             </li>
@@ -77,19 +77,19 @@ import "../styles/global.css";
           <div class="footer-social">
             <a href="https://www.linkedin.com/in/hamzanadi"
               ><img
-                src={`${import.meta.env.BASE_URL}icons/linkedin.png`}
+                src="/icons/linkedin.png"
                 alt="LinkedIn"
               /></a
             >
             <a href="https://wa.me/+966592792020"
               ><img
-                src={`${import.meta.env.BASE_URL}icons/whatsapp.png`}
+                src="/icons/whatsapp.png"
                 alt="WhatsApp"
               /></a
             >
             <a href="mailto:hamza@haykal.sa"
               ><img
-                src={`${import.meta.env.BASE_URL}icons/email.png`}
+                src="/icons/email.png"
                 alt="Email"
               /></a
             >
@@ -102,14 +102,14 @@ import "../styles/global.css";
           <ul
             style="list-style:none; padding:0; margin:0; display:grid; gap:.5rem;"
           >
-            <li><a href={`${import.meta.env.BASE_URL}`}>الرئيسية</a></li>
-            <li><a href={`${import.meta.env.BASE_URL}about/`}>من حمزة</a></li>
+            <li><a href={`/`}>الرئيسية</a></li>
+            <li><a href={`/about/`}>من حمزة</a></li>
             <li>
-              <a href={`${import.meta.env.BASE_URL}services/`}>الخدمات </a>
+              <a href={`/services/`}>الخدمات </a>
             </li>
-            <li><a href={`${import.meta.env.BASE_URL}posts/`}>المقالات </a></li>
+            <li><a href={`/posts/`}>المقالات </a></li>  
             <li>
-              <a href={`${import.meta.env.BASE_URL}contact/`}>تواصل معي</a>
+              <a href={`/contact/`}>تواصل معي</a>
             </li>
           </ul>
         </div>
