@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ezzsadaty.github.io/Hamza_Website/',
-  base: '/Hamza_Website/',
+  site: 'https://hamzanadi.netlify.app/',
+  base: '/',
   // ... rest of your config
 });
